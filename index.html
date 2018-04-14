@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<style>
+
+.btn-box
+{
+	display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+	background:#efefef;
+}
+
+.btn-box i
+{
+	color:#333;
+}
+	</style>
+	
+	<script type="text/javascript">
+$(window).load(function(){
+
+var regex = /^(.+?)(\d+)$/i;
+var cloneIndex = $(".clonedInput").length;
+
+function clone(){
+    $(this).parents(".clonedInput").clone()
+        .appendTo(".Newdiv")
+        .attr("id", "clonedInput" +  cloneIndex)
+        .find("*")
+        .each(function() {
+            var id = this.id || "";
+            var match = id.match(regex) || [];
+            if (match.length == 3) {
+                this.id = match[1] + (cloneIndex);
+            }
+        })
+        .on('click', 'button.clone', clone)
+	
+        .on('click', 'button.remove', remove);
+		
+    cloneIndex++;
+	
+	
+}
+function remove(){
+    $(this).parents(".clonedInput").remove();
+}
+$("button.clone").on("click", clone);
+
+$("button.remove").on("click", remove);
+
+});
+
+
+
+
+</script>
+</head>
+<body>
+<div>
+
+
+    
+    <div class="row">
+       <div class="container">
+	<h3>Add Schedule</h3>
+
+	 <div id="clonedInput1" class="clonedInput">
+    <div class="col-md-3">
+           <div class="form-group">
+		
+		 <label>From Day</label>
+            <select class="form-control" name="fromDay[]" id="Fromday0">
+              <option value="">Select day</option>
+              <option value="mon">Monday</option>
+              <option value="tue">Tuesday</option>
+              <option value="wed">Wednesday</option>
+              <option value="thu">Thursday</option>
+              <option value="fri">Friday</option>
+              <option value="sat">Saturday</option>
+              <option value="sun">Sunday</option>
+            </select>
+		
+		
+		 </div>
+    </div>
+	
+	
+	   <div class="col-md-3">
+          <div class="form-group">
+            <label>To Day</label>
+            <select class="form-control"  name="toDay[]" id="Today0">
+              <option value="">Select day</option>
+              <option value="mon">Monday</option>
+              <option value="tue">Tuesday</option>
+              <option value="wed">Wednesday</option>
+              <option value="thu">Thursday</option>
+              <option value="fri">Friday</option>
+              <option value="sat">Saturday</option>
+              <option value="sun">Sunday</option>
+            </select>
+          </div>
+        </div>
+	
+	
+	
+	 <div class="col-md-2">
+          <div class="form-group">
+            <label>To Day</label>
+			
+			
+			 <strong class="input-group time">
+          <input class="form-control"  id="ToDay_v0"/><span class="input-group-addon"><span class="fa fa-clock-o"></span></strong>
+        </span>
+			 
+			 
+			 
+            
+          
+
+		  </div>
+        </div>
+		
+		 <div class="col-md-2">
+          <div class="form-group">
+            <label>From Day</label>
+			
+			
+			 <strong class="input-group time">
+          <input class="form-control"  id="FromDay_v0"/><span class="input-group-addon"><span class="fa fa-clock-o"></span></strong>
+        </span>
+			 
+			 
+			 
+            
+          
+
+		  </div>
+        </div>
+	
+	
+	  <div class="actions col-md-2" style="margin-top:23px;">
+        <button class="clone btn btn-box"><i class="fa fa-plus-square"></i></button> 
+        <button class="remove btn row-remove"><i class="fa fa-minus-square"></i></button>
+    </div>
+
+   
+   
+   
+   
+  
+</div>
+   
+   
+   <div class="Newdiv"></div>
+	  
+		
+		
+		</div>
+		</div>
+  
+    <!-- tableschedule-->  
+ 
+  
+</div>
+
+ 
+
+
+
+<style> 
+.tableschedule .input-group-addon {
+    				padding: 3px 12px;}
+                  </style>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+</body>
+</html>
