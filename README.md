@@ -1,4 +1,4 @@
-# dynamic-div-in-jquery-with-bootstrap
+# Dynamically Add / Remove Html Elements with jQuery Code Bootstrap 
 
 dynamic div in jquery with bootstrap input increment.
 
